@@ -1,7 +1,7 @@
 {% if weather_data %}
     <h1>{{ weather_data.city }}</h1>
-    <h2>{{ weather_data.temperature }}</h2>
-    <h2>{{ weather_data.description }}</h2>
+    <p>{{ weather_data.temperature }} C&deg;</p>
+    <p>{{ weather_data.description }}</p>
     <img src="http://openweathermap.org/img/w/{{ weather_data.icon }}.png" alt="{{ weather_data.description }}">
 {% endif %}
 
@@ -12,11 +12,12 @@
         {% for forecast in daily_forecasts %}
             <div class="forecast">
                 <h3>{{ forecast.day }}</h3>
-                <p>{{ forecast.min_temp }}C&deg;-{{ forcast.max_temp }}C&deg;</p>
+                <p>{{ forecast.min_temp }} C&deg;-{{ forecast.max_temp }} C&deg;</p>
                 <p>{{ forecast.description }}</p>
-                <img src="http://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="{{ weather_data.description }}">
+                <img src="http://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="{{ forecast.description }}">
             </div>
         {% endfor %}
     </div>
 {% endif %}
-    
+
+
